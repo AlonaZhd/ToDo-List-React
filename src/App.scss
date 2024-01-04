@@ -1,0 +1,13 @@
+.App {
+    width: 100%;
+    max-width: 1250px;
+
+    &__section {
+        padding: 80px;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        justify-content: space-between;
+        gap: 48px;
+        color: white;
+    }
+}

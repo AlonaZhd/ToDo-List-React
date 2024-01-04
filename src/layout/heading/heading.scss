@@ -1,0 +1,26 @@
+.heading {
+    padding-top: 50px;
+    &__title {
+        font-size: var(--h1-font-size);
+    }
+
+    &__subtitle {
+        font-size: var(--h2-font-size);
+        color: var(--color-text-light);
+    }
+
+    &__wrapp {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        color: var(--color-text-light);
+
+        .text--accent {
+            font-size: var(--h2-font-size);
+        }
+    }
+
+    &__logo {
+        width: 50px;
+    }
+}
