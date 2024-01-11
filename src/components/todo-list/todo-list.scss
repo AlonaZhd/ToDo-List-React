@@ -1,0 +1,12 @@
+.todo {
+    &__title {
+        font-size: var(--h3-font-size);
+    }
+
+    &__list {
+        display: grid;
+        gap: 12px;
+        width: 450px;
+        color: var(--color-text);
+    }
+}

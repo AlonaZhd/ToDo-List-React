@@ -1,0 +1,18 @@
+.button-icon {
+    width: 24px;
+    height: 24px;
+
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+
+    &--done {
+        border: 2px solid var(--color-primary-light);
+    }
+}
+
+.completed {
+    .button-icon--done {
+        background-color: var(--color-primary-light);
+    }
+}

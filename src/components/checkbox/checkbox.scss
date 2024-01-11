@@ -1,0 +1,18 @@
+.checkbox-icon {
+    width: 22px;
+    height: 22px;
+
+    border: 1px solid var(--color-input-dark);
+    border-radius: 50%;
+    display: inline-block;
+
+    &--done {
+        border: 2px solid var(--color-primary-light);
+        background-color: var(--color-primary-light);
+    }
+}
+
+.checkbox-input {
+    position: absolute;
+    left: -9999px;
+}
