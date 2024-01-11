@@ -15,6 +15,11 @@
 
     &:focus {
         outline: none;
-        color: var(--color-input-dark);
+        color: var(--color-text);
     }
+}
+
+.error-msg {
+    font-size: var(--small-font-size);
+    color: var(--color-error);
 }

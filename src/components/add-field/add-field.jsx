@@ -2,40 +2,60 @@ import React, { useState } from "react";
 import Button from "../button/button";
 
 import "./add-field.scss";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 
 const AddField = ({ toDos, setToDos }) => {
-    const [field, setField] = useState("");
+    const initialValues = {
+        todo: "",
+    };
 
-    const onClickHandler = () => {
+    const validate = (values) => {
+        const errors = {};
+
+        if (!values.todo) {
+            errors.todo = "Це поле обов'язкове";
+        } else if (values.todo.length < 3 || values.todo.length > 30) {
+            errors.todo = "Текст повинен містити від 3 до 30 символів";
+        }
+
+        return errors;
+    };
+
+    const handleSubmit = (values, { resetForm }) => {
         const updateToDos = [
             ...toDos,
-            { id: toDos.length + 1, todo: field, checkbox: false },
+            { id: toDos.length + 1, todo: values.todo, checkbox: false },
         ];
         setToDos(updateToDos);
-        setField("");
-    };
-
-    const onKeyPressHandler = (e) => {
-        if (e.key === "Enter") {
-            onClickHandler();
-        }
-    };
-
-    const onChangeHandler = (e) => {
-        const value = e.target.value;
-        setField(value);
+        resetForm();
     };
 
     return (
-        <div className="todo__field">
-            <input
-                onChange={onChangeHandler}
-                onKeyPress={onKeyPressHandler}
-                value={field}
-                className="field"
-            ></input>
-            <Button click={onClickHandler} />
-        </div>
+        <Formik
+            initialValues={initialValues}
+            validate={validate}
+            onSubmit={handleSubmit}
+        >
+            <Form>
+                {/* Поле вводу з валідацією */}
+                <div className="todo__field">
+                    <Field
+                        type="text"
+                        id="todo"
+                        name="todo"
+                        className="field"
+                    />
+                    <Button type="submit" />
+                </div>
+
+                {/* Кнопка для подачі форми */}
+                <ErrorMessage
+                    name="todo"
+                    component="div"
+                    className="error-msg"
+                />
+            </Form>
+        </Formik>
     );
 };
 
