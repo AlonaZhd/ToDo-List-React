@@ -12,9 +12,7 @@ const AddField = ({ toDos, setToDos }) => {
     const validate = (values) => {
         const errors = {};
 
-        if (!values.todo) {
-            errors.todo = "Це поле обов'язкове";
-        } else if (values.todo.length < 3 || values.todo.length > 30) {
+        if (values.todo.length < 3 || values.todo.length > 30) {
             errors.todo = "Текст повинен містити від 3 до 30 символів";
         }
 
