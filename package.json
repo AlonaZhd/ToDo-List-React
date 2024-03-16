@@ -15,7 +15,6 @@
         "styled-components": "^6.1.6",
         "web-vitals": "^2.1.4"
     },
-    "homepage": "https://alonazhd.github.io/to-do-list_react/",
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
